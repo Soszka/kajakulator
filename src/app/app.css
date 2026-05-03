@@ -1,0 +1,303 @@
+:host {
+  color: #eef7ff;
+  display: block;
+  min-height: 100vh;
+}
+
+:host::before {
+  background:
+    radial-gradient(circle at 18% 10%, rgba(73, 185, 255, 0.22), transparent 30rem),
+    radial-gradient(circle at 88% 4%, rgba(255, 91, 108, 0.18), transparent 28rem),
+    linear-gradient(145deg, #041019 0%, #08202a 46%, #120913 100%);
+  content: "";
+  inset: 0;
+  pointer-events: none;
+  position: fixed;
+  z-index: -1;
+}
+
+.app-shell {
+  align-items: center;
+  box-sizing: border-box;
+  display: grid;
+  min-height: 100vh;
+  padding: 18px;
+}
+
+.boat-grid {
+  display: grid;
+  gap: 18px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  margin: 0 auto;
+  max-width: 1400px;
+  width: 100%;
+}
+
+.boat-card {
+  --boat-accent: #49b9ff;
+  --boat-glow: rgba(73, 185, 255, 0.34);
+
+  background:
+    linear-gradient(160deg, rgba(255, 255, 255, 0.13), rgba(255, 255, 255, 0.035)),
+    rgba(4, 13, 21, 0.86);
+  border: 1px solid rgba(255, 255, 255, 0.13);
+  border-radius: 8px;
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.34), 0 0 46px var(--boat-glow);
+  display: grid;
+  gap: 14px;
+  min-width: 0;
+  overflow: hidden;
+  padding: 0 18px 18px;
+  position: relative;
+}
+
+.boat-card.is-active {
+  border-color: var(--boat-accent);
+}
+
+.boat-header {
+  align-items: center;
+  background:
+    linear-gradient(135deg, color-mix(in srgb, var(--boat-accent) 42%, transparent), rgba(255, 255, 255, 0.035)),
+    radial-gradient(circle at 12% 0%, var(--boat-glow), transparent 10rem);
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.22), inset 0 -1px rgba(255, 255, 255, 0.055);
+  display: block;
+  margin: 0 -18px;
+  min-width: 0;
+  position: relative;
+  z-index: 1;
+}
+
+h2 {
+  color: #ffffff;
+  font-size: 1.72rem;
+  font-weight: 900;
+  line-height: 1;
+  margin: 0;
+  padding: 18px;
+  width: 100%;
+}
+
+.time-panel {
+  display: grid;
+  gap: 8px;
+  min-width: 0;
+  position: relative;
+  z-index: 1;
+}
+
+.timer {
+  color: #ffffff;
+  font-size: 3rem;
+  font-variant-numeric: tabular-nums;
+  font-weight: 950;
+  line-height: 1;
+}
+
+.start-time,
+.payment-panel span {
+  color: #9fb2c1;
+  font-size: 0.78rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.payment-panel {
+  background: rgba(0, 0, 0, 0.22);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  display: grid;
+  gap: 10px;
+  padding: 12px;
+  position: relative;
+  z-index: 1;
+}
+
+.payment-panel strong {
+  color: #92f3dc;
+  font-size: 1.75rem;
+  line-height: 1;
+}
+
+.payment-add {
+  align-items: stretch;
+  background: rgba(255, 255, 255, 0.055);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 8px;
+  display: flex;
+  overflow: hidden;
+}
+
+.payment-add input {
+  background: transparent;
+  border: 0;
+  color: #ffffff;
+  font: inherit;
+  min-width: 0;
+  outline: 0;
+  padding: 0 12px;
+  width: 100%;
+}
+
+.payment-add button {
+  background:
+    linear-gradient(155deg, rgba(255, 255, 255, 0.24), transparent 38%),
+    linear-gradient(135deg, color-mix(in srgb, var(--boat-accent) 64%, white), color-mix(in srgb, var(--boat-accent) 88%, #111827));
+  border-left: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 0;
+  color: #04101a;
+  flex: 0 0 58px;
+  min-height: 44px;
+  padding: 0;
+}
+
+.boat-actions,
+.dialog-actions {
+  display: grid;
+  gap: 8px;
+  grid-template-columns: 1fr 1fr;
+}
+
+button {
+  border: 0;
+  border-radius: 8px;
+  cursor: pointer;
+  font: inherit;
+  font-weight: 900;
+  min-height: 50px;
+  padding: 0 14px;
+  transition: 160ms ease;
+}
+
+button:disabled {
+  cursor: not-allowed;
+  filter: grayscale(1);
+  opacity: 0.24;
+}
+
+.primary-action {
+  background:
+    linear-gradient(155deg, rgba(255, 255, 255, 0.28), transparent 36%),
+    radial-gradient(circle at 20% 0%, rgba(255, 255, 255, 0.22), transparent 44%),
+    linear-gradient(135deg, color-mix(in srgb, var(--boat-accent) 66%, white), color-mix(in srgb, var(--boat-accent) 90%, #111827));
+  box-shadow: 0 12px 30px var(--boat-glow);
+  color: #04101a;
+}
+
+.arrive-action,
+.secondary-action {
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #dceaf6;
+}
+
+.arrive-action:not(:disabled) {
+  background:
+    linear-gradient(155deg, rgba(255, 255, 255, 0.24), transparent 36%),
+    linear-gradient(135deg, color-mix(in srgb, var(--boat-accent) 64%, white), color-mix(in srgb, var(--boat-accent) 88%, #111827));
+  box-shadow: 0 12px 30px var(--boat-glow);
+  color: #04101a;
+}
+
+.primary-action:hover:not(:disabled),
+.arrive-action:hover:not(:disabled),
+.payment-add button:hover:not(:disabled) {
+  filter: brightness(1.08) saturate(1.08);
+  box-shadow: 0 14px 34px var(--boat-glow);
+  transform: translateY(-2px);
+}
+
+.danger-action {
+  background:
+    linear-gradient(155deg, rgba(255, 255, 255, 0.24), transparent 36%),
+    linear-gradient(135deg, color-mix(in srgb, var(--boat-accent) 64%, white), color-mix(in srgb, var(--boat-accent) 88%, #111827));
+  box-shadow: 0 12px 30px var(--boat-glow);
+  color: #21070a;
+}
+
+input:focus-visible,
+button:focus-visible {
+  outline: 2px solid #49e1c2;
+  outline-offset: 2px;
+}
+
+.dialog-backdrop {
+  align-items: center;
+  background: rgba(2, 8, 13, 0.74);
+  display: grid;
+  inset: 0;
+  padding: 18px;
+  position: fixed;
+  z-index: 10;
+}
+
+.confirm-dialog {
+  --boat-accent: #49b9ff;
+  --boat-glow: rgba(73, 185, 255, 0.34);
+
+  background:
+    radial-gradient(circle at 50% -18%, var(--boat-glow), transparent 16rem),
+    linear-gradient(150deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.045)),
+    #08141d;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 8px;
+  box-shadow: 0 24px 90px rgba(0, 0, 0, 0.5);
+  display: grid;
+  gap: 22px;
+  margin: auto;
+  max-width: 420px;
+  padding: 28px;
+  text-align: center;
+  width: 100%;
+}
+
+.confirm-dialog h2 {
+  color: #ffffff;
+  font-size: 1.65rem;
+  line-height: 1.1;
+  margin: 0;
+}
+
+.confirm-dialog p {
+  color: #c0cfda;
+  margin: 0;
+}
+
+.dialog-actions {
+  gap: 12px;
+}
+
+.dialog-actions button {
+  min-height: 58px;
+}
+
+@media (max-width: 1180px) {
+  .boat-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .app-shell {
+    align-items: start;
+    padding: 12px;
+  }
+
+  .boat-grid {
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+
+  .boat-card {
+    gap: 14px;
+    padding: 0 16px 16px;
+  }
+
+  .boat-header {
+    margin: 0 -16px;
+  }
+
+  .timer {
+    font-size: 2.55rem;
+  }
+}
